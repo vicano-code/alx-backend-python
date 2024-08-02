@@ -7,6 +7,9 @@ from typing import Tuple, List, Union
 
 
 def zoom_array(lst: Tuple, factor: int = 2) -> List:
+  """zoom in on a tuple by repeating each element a specified
+   number of times
+  """
     zoomed_in: Tuple = tuple([
       item for item in lst
       for i in range(factor)
