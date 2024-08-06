@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """
 1-Async Comprehensions
 A coroutine using async comprehension
