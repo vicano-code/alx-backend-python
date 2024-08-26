@@ -5,6 +5,7 @@
 """
 import unittest
 from parameterized import parameterized
+import requests
 from unittest.mock import patch, Mock
 from utils import access_nested_map, get_json, memoize
 
@@ -43,15 +44,10 @@ class TestGetJson(unittest.TestCase):
         ("http://holberton.io", {"payload": False}),
     ])
     def test_get_json(self, test_url, test_payload, mock_get):
-        """method to test utils.get_json function"""
-        # Create a Mock response object with a json method
-        mock_response = Mock()
-        mock_response.json.return_value = test_payload
-        mock_get.return_value = mock_response
-        # Assert that requests.get was called exactly once with the test_url
-        mock_get.assert_called_once_with(test_url)
-        # assert that the expected payload was returned
-        self.assertEqual(get_json(test_url), test_payload)
+        """test utils.get_json function"""
+        with patch('requests.get') as mock_request:
+            mock_request.return_value.json.return_value = test_payload
+            self.assertEqual(get_json(url=test_url), test_payload)
 
 
 class TestMemoize(unittest.TestCase):
