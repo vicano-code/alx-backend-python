@@ -41,7 +41,7 @@ class TestGetJson(unittest.TestCase):
     @patch('utils.requests.get')
     @parameterized.expand([
         ("http://example.com", {"payload": True}),
-        ("http://holberton.io", {"payload": False}),
+        ("http://holberton.io", {"payload": False})
     ])
     def test_get_json(self, test_url, test_payload, mock_get):
         """test utils.get_json function"""
@@ -64,9 +64,12 @@ class TestMemoize(unittest.TestCase):
             """test class"""
             @Mock()
             def a_method(self):
+                """a method to return a constant"""
                 return 42
+
             @memoize
             def a_property(self):
+                """return a property"""
                 return self.a_method()
 
         with patch.object(TestClass, 'a_method') as mock:
@@ -77,4 +80,4 @@ class TestMemoize(unittest.TestCase):
 
 
 if __name__ == '__main__':
-  unittest.main()
+    unittest.main()
