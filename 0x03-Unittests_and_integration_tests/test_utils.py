@@ -56,12 +56,13 @@ class TestGetJson(unittest.TestCase):
 
 
 class TestMemoize(unittest.TestCase):
-    """class to test the memoize function
+    """
+    class to test the memoize function
     """
     def test_memoize(self):
         """method to test memoize function"""
         class TestClass:
-            """test class"""
+            """test class-subclass of the test_memoize function"""
             @Mock()
             def a_method(self):
                 """a method to return a constant"""

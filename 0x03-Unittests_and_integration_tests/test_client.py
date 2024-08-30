@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """
+Module for testing client
 """
 import unittest
 from parameterized import parameterized
@@ -20,7 +21,6 @@ class TestGithubOrgClient(unittest.TestCase):
         some_client.org()
         mock.assert_called_once_with(f"https://api.github.com/orgs/{org_name}")
 
-
     def test_public_repos_url(self):
         """test the public_repos_url method of the GithubOrgClient class"""
         payload = {"repos_url": "https://api.github.com/orgs/test-org/repos"}
@@ -35,4 +35,4 @@ class TestGithubOrgClient(unittest.TestCase):
 
 
 if __name__ == '__main__':
-  unittest.main()
+    unittest.main()
