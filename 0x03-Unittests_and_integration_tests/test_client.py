@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
 Module for testing client
+Unit-tests and Integration tests
 """
 import unittest
 from parameterized import parameterized
@@ -104,6 +105,7 @@ class TestGithubOrgClient(unittest.TestCase):
     def tearDownClass(cls):
         """ teardown after of each class """
         cls.get_patcher.stop()
+
 
 if __name__ == '__main__':
     unittest.main()
